@@ -171,8 +171,12 @@ class CapitalT(object):
         #   Note: Implement   attach_to   before testing this __init__ method.
         # ---------------------------------------------------------------------
 
-        self.h_rect = rg.Rectangle(rg.Point(intersection_center.x-(width/2),intersection_center.y-(letter_thickness/2)),rg.Point(intersection_center.x + (width/2),intersection_center.y + (letter_thickness/2)))
-        self.v_rect = rg.Rectangle(rg.Point(intersection_center.x - (letter_thickness/2),intersection_center.y - (letter_thickness/2)),rg.Point(intersection_center.x + (letter_thickness/2), intersection_center.y + (height - (letter_thickness/2))))
+        self.h_rect = rg.Rectangle(rg.Point(intersection_center.x-(width/2),intersection_center.y-(letter_thickness/2)),
+                                   rg.Point(intersection_center.x + (width/2),intersection_center.y + (letter_thickness/2)))
+        self.v_rect = rg.Rectangle(rg.Point(intersection_center.x - (letter_thickness/2),intersection_center.y -
+                                            (letter_thickness/2)),rg.Point(intersection_center.x + (letter_thickness/2),
+                                                                           intersection_center.y + (height -
+                                                                                                    (letter_thickness/2))))
 
     def attach_to(self, window):
         """
@@ -322,9 +326,11 @@ class CapitalT(object):
         # variables beyond  h_rect  and  v_rect, at any point of this exercise.
         #######################################################################
 
-        new_v_rectangle = self.v_rect
-        new_h_rectangle = self.h_rect
-        return new_h_rectangle and new_v_rectangle
+        intersection = self.h_rect.get_center()
+        width = self.h_rect.get_width()
+        height = self.v_rect.get_height()
+        thickness = self.h_rect.get_height()
+        return CapitalT(intersection, width, height, thickness)
 
 
 # -----------------------------------------------------------------------------
