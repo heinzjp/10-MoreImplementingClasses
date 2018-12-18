@@ -171,19 +171,8 @@ class CapitalT(object):
         #   Note: Implement   attach_to   before testing this __init__ method.
         # ---------------------------------------------------------------------
 
-
-        self.intersec = intersection_center
-        self.width = width
-        self.height = height
-        self.thickness = letter_thickness
-        self.fill_color = ''
-        self.outline_color = ''
-        rectangle1_left_coner = rg.Point(self.intersec.x - (self.width/2), self.intersec.y - (self.thickness/2))
-        rectangle1_right_coner = rg.Point(self.intersec.x + (self.width/2), self.intersec.y + (self.thickness/2))
-        self.h_rect = rg.Rectangle(rectangle1_left_coner, rectangle1_right_coner)
-        rectangle2_left_coner = rg.Point(self.intersec.x - (self.thickness/2), self.intersec.y - (self.thickness/2))
-        rectangle2_right_coner = rg.Point(self.intersec.x + (self.thickness/2), self.intersec.y + (self.height - (self.thickness/2)))
-        self.v_rect = rg.Rectangle(rectangle2_left_coner, rectangle2_right_coner)
+        self.h_rect = rg.Rectangle(rg.Point(intersection_center.x-(width/2),intersection_center.y-(letter_thickness/2)),rg.Point(intersection_center.x + (width/2),intersection_center.y + (letter_thickness/2)))
+        self.v_rect = rg.Rectangle(rg.Point(intersection_center.x - (letter_thickness/2),intersection_center.y - (letter_thickness/2)),rg.Point(intersection_center.x + (letter_thickness/2), intersection_center.y + (height - (letter_thickness/2))))
 
     def attach_to(self, window):
         """
@@ -252,8 +241,6 @@ class CapitalT(object):
         self.v_rect.fill_color = fill_color
         self.h_rect.outline_color = outline_color
         self.v_rect.outline_color = outline_color
-        self.fill_color = fill_color
-        self.outline_color = outline_color
 
     def move_by(self, dx, dy):
         """
@@ -335,9 +322,9 @@ class CapitalT(object):
         # variables beyond  h_rect  and  v_rect, at any point of this exercise.
         #######################################################################
 
-        new_rectangle = CapitalT(self.intersec, self.width, self.height, self.thickness)
-        new_rectangle.set_colors(self.fill_color, self.outline_color)
-        return new_rectangle
+        new_v_rectangle = self.v_rect
+        new_h_rectangle = self.h_rect
+        return new_h_rectangle and new_v_rectangle
 
 
 # -----------------------------------------------------------------------------
