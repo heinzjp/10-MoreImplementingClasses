@@ -330,7 +330,12 @@ class CapitalT(object):
         width = self.h_rect.get_width()
         height = self.v_rect.get_height()
         thickness = self.h_rect.get_height()
-        return CapitalT(intersection, width, height, thickness)
+        new = CapitalT(intersection, width, height, thickness)
+        new.h_rect.outline_color = self.h_rect.outline_color
+        new.v_rect.outline_color = self.v_rect.outline_color
+        new.h_rect.fill_color = self.h_rect.fill_color
+        new.v_rect.fill_color = self.v_rect.fill_color
+        return new
 
 
 # -----------------------------------------------------------------------------
