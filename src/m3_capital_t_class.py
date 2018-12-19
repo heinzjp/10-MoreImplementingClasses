@@ -173,10 +173,8 @@ class CapitalT(object):
 
         self.h_rect = rg.Rectangle(rg.Point(intersection_center.x-(width/2),intersection_center.y-(letter_thickness/2)),
                                    rg.Point(intersection_center.x + (width/2),intersection_center.y + (letter_thickness/2)))
-        self.v_rect = rg.Rectangle(rg.Point(intersection_center.x - (letter_thickness/2),intersection_center.y -
-                                            (letter_thickness/2)),rg.Point(intersection_center.x + (letter_thickness/2),
-                                                                           intersection_center.y + (height -
-                                                                                                    (letter_thickness/2))))
+        self.v_rect = rg.Rectangle(rg.Point(intersection_center.x - (letter_thickness/2),intersection_center.y -(letter_thickness/2)),
+                                   rg.Point(intersection_center.x + (letter_thickness/2),intersection_center.y + (height -(letter_thickness/2))))
 
     def attach_to(self, window):
         """
